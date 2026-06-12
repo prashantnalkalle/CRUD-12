@@ -115,7 +115,7 @@ function addnewcard(newobj,response){
     let offset = ``
     
 
-    div.className = `col-md-6 `
+    div.className = `col-md-6 my-4`
     div.id = response.id
 
 
