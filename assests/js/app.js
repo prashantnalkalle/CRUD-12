@@ -266,7 +266,7 @@ function onremove(ele){
 
     xhr.onload = function(){
 
-        ele.closest('.col-md-4').remove();
+        ele.closest('.col-md-6').remove();
 
         snackbar(`The Comment id ${removeId} is removed Successfully!!!`,'success')
 
