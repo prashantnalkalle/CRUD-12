@@ -242,7 +242,7 @@ function onupdate(){
 
 
 function onremove(ele){
-    let removeId = ele.closest('.col-md-4').id
+    let removeId = ele.closest('.col-md-6').id
     spinner.classList.remove('d-none')
 
     Swal.fire({
