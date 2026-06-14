@@ -228,6 +228,8 @@ function onupdate(){
 
         snackbar(`The Comment id ${updateId} is Updated successfully!!`,'success')
 
+        inputform.reset()
+
         addpost.classList.remove('d-none')
         updatepost.classList.add('d-none')
        }else{
