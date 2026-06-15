@@ -18,19 +18,19 @@
 							<form action="" id="inputform">
 								<div class="form-group">
 									<label for="name" class="font-weight-bold">Name*</label>
-									<input type="text" class="form-control" id="name">
+									<input type="text" required class="form-control" id="name">
 								</div>
 								<div class="form-group">
 									<label for="email" class="font-weight-bold">Email*</label>
-									<input type="email" class="form-control" id="email">
+									<input type="email" required class="form-control" id="email">
 								</div>
 								<div class="form-group">
 									<label for="body" class="font-weight-bold">Comment*</label>
-									<textarea rows="4" class="form-control" id="body"></textarea>
+									<textarea rows="4" required class="form-control" id="body"></textarea>
 								</div>
 								<div class="form-group">
 									<label for="postId" class="font-weight-bold">PostID*</label>
-									<input type="number" class="form-control" id="postId">
+									<input type="number" required class="form-control" id="postId">
 								</div>
 								<button class="btn btn-primary btn-sm btn-block" id="addpost">Add Post</button>
 								<button type="button" class="btn btn-success btn-sm btn-block d-none" id="updatepost">Update Post</button>
@@ -41,25 +41,9 @@
 				</div>
 			</div>
 			<div class="row mt-5" id="cardcontainer">
-				<!-- <div class="col-md-4 offset-md-2">
-					<div class="card">
-						<div class="card-header">
-							<h2>Email : </h2>
-						</div>
-						<div class="card-body">
-							<h3>NAME : </h3>
-							<p></p>
-						</div>
-						<div class="card-footer d-flex justify-content-between">
-							<button class="btn btn-primary btn-sm " id="editbtn">Edit</button>
-							<button class="btn btn-danger btn-sm " id="deletebtn">Remove</button>
-
-						</div>
-					</div>
-				</div> -->
-
+				
 			</div>
-			<div class="spinner" id="spinner">
+			<div class="spinner d-none" id="spinner">
 				<div class="spinner-border text-primary" role="status">
   					<span class="sr-only">Loading...</span>
 				</div>

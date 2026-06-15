@@ -33,11 +33,18 @@ function fetchproducts (){
     xhr.send(null)
 
     xhr.onload = function(){
-        postArr = JSON.parse(xhr.response)
+        if(xhr.status >= 200 && xhr.status <= 299){
+            postArr = JSON.parse(xhr.response)
         
-        createposts(postArr.reverse())
+            createposts(postArr.reverse())
+        }
+        
+        spinner.classList.add('d-none')
         
     }
+
+    spinner.classList.add('d-none')
+
 
 }
 
@@ -71,7 +78,6 @@ function createposts(arr){
     cardcontainer.innerHTML =result
 
 
-    spinner.classList.add('d-none')
 }
 
 function onsubmit(ele){
@@ -101,11 +107,11 @@ function onsubmit(ele){
         addnewcard(newobj,res)
        }
 
+        spinner.classList.add('d-none')
 
     }
 
-
-
+    spinner.classList.add('d-none')
 
 }
 
@@ -139,7 +145,6 @@ function addnewcard(newobj,response){
 
 
     inputform.reset()
-    spinner.classList.add('d-none')
 
 
     snackbar(`The New Comment id ${response.id} is added successfull!!`,'success')
@@ -248,37 +253,40 @@ function onremove(ele){
     spinner.classList.remove('d-none')
 
     Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed){
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+    if (result.isConfirmed){
+        
+        let Remove_url = `${Base_url}/${removeId}`
+
+        let xhr = new XMLHttpRequest()
+
+        xhr.open('DELETE',Remove_url)
+
+        xhr.send(null)
+
+        xhr.onload = function(){
+
+            ele.closest('.col-md-6').remove();
+
+            snackbar(`The Comment id ${removeId} is removed Successfully!!!`,'success')
+
+        }
+
+
+        spinner.classList.add('d-none')
     
-    let Remove_url = `${Base_url}/${removeId}`
-
-    let xhr = new XMLHttpRequest()
-
-    xhr.open('DELETE',Remove_url)
-
-    xhr.send(null)
-
-    xhr.onload = function(){
-
-        ele.closest('.col-md-6').remove();
-
-        snackbar(`The Comment id ${removeId} is removed Successfully!!!`,'success')
-
     }
-
+});
 
     spinner.classList.add('d-none')
-    
-  }
-});
+
 
 }
 
